@@ -50,3 +50,40 @@ function viewRoles(){
         questions()
     })
 }
+
+function addEmployee(){
+    inquirer.prompt([
+        {
+           type: "input",
+           name: "first_name",
+           message: "What is the employee's first name?"
+        },
+        {
+            type: "input",
+            name: "last_name",
+            message: "What is the employee's last name?"
+         },
+         {
+            type: "input",
+            name: "role_id",
+            message: "What is the employee's role id?"
+         },
+         {
+            type: "input",
+            name: "manager_id",
+            message: "What is the employee's managers id?",
+            default: null
+         },
+    ]).then(function(data){
+        connection.query("INSERT INTO employee SET ?", {
+            first_name: data.first_name,
+            last_name: data.last_name,
+            role_id: data.role_id,
+            manager_id: data.manager_id
+        },function(error){
+            if(error)throw error
+            console.log("added employee")
+            questions()
+        })
+    })
+}
