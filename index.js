@@ -87,3 +87,22 @@ function addEmployee(){
         })
     })
 }
+
+function addDepartment(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "department",
+            message: "What is the department that you would like to add?",
+            default: null
+        },
+    ]).then(function(data){
+        connection.query("INSERT INTO department SET ?", {
+            name: data.department
+        },function(error){
+            if (error)throw error
+            console.log("added department")
+            questions()
+        })
+    })
+}
