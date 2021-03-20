@@ -14,7 +14,7 @@ function questions() {
         }else if(data.choice === "view all departments"){
             viewDepartments()
         }else if(data.choice === "view all roles"){
-            viewRoles()
+            viewRole()
         }else if(data.choice === "add employee"){
             addEmployee()
         }else if(data.choice === "add role"){
@@ -44,7 +44,7 @@ function viewDepartments(){
     })
 }
 
-function viewRoles(){
+function viewRole(){
     connection.query("SELECT * FROM role", function(error, response){
         console.table(response)
         questions()
@@ -100,8 +100,38 @@ function addDepartment(){
         connection.query("INSERT INTO department SET ?", {
             name: data.department
         },function(error){
-            if (error)throw error
+            if(error)throw error
             console.log("added department")
+            questions()
+        })
+    })
+}
+
+function addRole(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "title",
+            message: "What role would you like to add?"
+        },
+        {
+            type: "input",
+            name: "department_id",
+            message: "Department id number"
+        },
+        {
+            type: "input",
+            name: "salary",
+            message: "Salary for this position"
+        },
+    ]).then(function(data){
+        connection.query("INSERT INTO role SET ?", {
+            title: data.title,
+            department_id: data.department_id,
+            salary: data.salary
+        },function(error){
+            if(error)throw error
+            console.log("added role")
             questions()
         })
     })
