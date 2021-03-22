@@ -60,9 +60,8 @@ function renderLicenseBadge(license) {
     ${answers.license}
     ## Contributing
     ${answers.contributing}
-    ## Tests
-    ${answers.tests}
     ## Questions
+    ${answers.questions}
    
     Find me on GitHub: ${answers.username}
     Email me with any questions: ${answers.email}
