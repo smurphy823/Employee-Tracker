@@ -1,10 +1,13 @@
 Project Title
+
 #Employee Tracker
 
 Description
+
 This application is for managing a company's employees using node, inquirer, and MySQL.
 
 Installation Instructions
+
 You will need npm and MYSQL installed
 
 Node.js
