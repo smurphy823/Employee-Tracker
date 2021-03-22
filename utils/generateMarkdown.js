@@ -43,14 +43,14 @@ function renderLicenseBadge(license) {
     ## Description
      ${answers.description}
     ## Table of Contents
-     [Description](#description)\n
-     [Installation](#installation)\n
-     [Usage](#usage)\n
-     [License](#license)\n
-     [Contributing](#contributing)\n
-     [Tests](#tests)\n
-     [Questions](#questions)\n
-     [username](#username)\n
+     [Description](#description)
+     [Installation](#installation)
+     [Usage](#usage)
+     [License](#license)
+     [Contributing](#contributing)
+     [Tests](#tests)
+     [Questions](#questions)
+     [username](#username)
     ## Installation
     ${answers.installation}  
     ## Usage

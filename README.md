@@ -1,33 +1,25 @@
 # Employee Tracker
     ## Description
-      This application is for managing a company's employees
+     This application will allow a business owner to manage and view their employees departments and roles
     ## Table of Contents
      [Description](#description)
-
      [Installation](#installation)
-
      [Usage](#usage)
-
      [License](#license)
-
      [Contributing](#contributing)
-
      [Tests](#tests)
-
      [Questions](#questions)
-
      [username](#username)
-
     ## Installation
-    You will need to install npm, mysql and figlet  
+    npm install, mysql and figlet  
     ## Usage
-    You must have all dependencies installed
+    You must have all dependencies installed 
     ## License
     MIT
     ## Contributing
-    All contributions are welcomed.  Please see my info below.
+    N/A but all contributes are welcomed
     ## Tests
-    N/A
+    undefined
     ## Questions
    
     Find me on GitHub: (smurphy823/github.com)

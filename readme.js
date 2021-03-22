@@ -2,7 +2,7 @@
 const inquirer = require("inquirer")
 const fs = require("fs")
 const path = require("path")
-const generateMarkdwon = require("./utils/generateMarkdown")
+const generateMarkdown = require("./utils/generateMarkdown")
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -31,11 +31,6 @@ const questions = [
     },
     {
         type: "input",
-        name: "tests",
-        message: "what command should be run for testing?"
-    },
-    {
-        type: "input",
         name: "usage",
         message: "what do I need to know about using the repo?"
     },
@@ -54,7 +49,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then(data=>{
-        writeToFile("readMe.md", generateMarkdwon(data))
+        writeToFile("readMe.md", generateMarkdown(data))
     })
 }
 
