@@ -1,9 +1,6 @@
 const inquirer = require("inquirer");
 require("console.table");
 const connection = require("./connection");
-const figlet = require("figlet");
-console.log(figlet.textSync('Employee Tracker'));
-
 
 function questions() {
     inquirer.prompt({
@@ -120,12 +117,12 @@ function addRole(){
         {
             type: "input",
             name: "department_id",
-            message: "Department id number"
+            message: "Enter department id number"
         },
         {
             type: "input",
             name: "salary",
-            message: "Salary for this position"
+            message: "Enter the salary for this position"
         },
     ]).then(function(data){
         connection.query("INSERT INTO role SET ?", {
@@ -139,84 +136,3 @@ function addRole(){
         })
     })
 }
-
-function updateEmployeeRole() {
-    connection.query(`SELECT
-        e.id,
-        e.first_name,
-        e.last_name,
-        e.manager_id,
-        e.role_id,
-        r.id,
-        r.title,
-        r.salary,
-        r.department_id
-        FROM employee_trackerdb.employee e
-        left join employee_trackerdb.role r on e.role_id = r.id;`, (err, res) => {
-        if (err) throw err;
-        console.table(res);
-
-        inquirer.prompt([
-            {
-                type: "input",
-                name: "idUpdate",
-                message: "Please enter the employee id number to update "
-            },
-            {
-                type: "input",
-                name: "newId",
-                message: "Please enter the updated role id for this employee "
-
-
-            },
-        ]).then((res) => {
-            connection.query("UPDATE employee SET ? WHERE ?",
-                [
-                    {
-                        id: res.newId,
-                    },
-                    {
-                        id: res.idUpdate,
-                    }
-                ],
-                (err, res) => {
-                    if (err) throw err;
-                    console.log("The employees role has been updated successfully !!! ");
-                    viewEmployees();
-
-
-                }
-
-            );
-
-        });
-    });
-
-};
-/* function updateEmployeeRole(){
-
-    inquirer.prompt([
-        {
-            type: "list",
-            name: "employee_id",
-            message: "Which employee would you like to update?",
-            choice:
-        },
-        {
-            type: "input",
-            name: "title_id",
-            message: "Enter employees new role id"
-
-        },
-
-    ]).then(function(data){
-        connection.query(`UPDATE employee SET role_id = ${data.titleID} WHERE id = ${data.employeeID}`, {
-             name: data.name,
-             role_id: data.role_id 
-        },function(error){
-            if(error)throw error
-            console.log("added updated employee role")
-            questions()
-        })
-    })
-} */
