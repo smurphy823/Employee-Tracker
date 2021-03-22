@@ -1,6 +1,6 @@
 # Employee Tracker
     ## Description
-     This application is for managing a company's employees using node, inquirer, and MySQL.
+      This application is for managing a company's employees
     ## Table of Contents
      [Description](#description)
 
@@ -19,9 +19,9 @@
      [username](#username)
 
     ## Installation
-    You will need to install npm and mysql  
+    You will need to install npm, mysql and figlet  
     ## Usage
-    You must have all dependencies installed along with figlet and console.table
+    You must have all dependencies installed
     ## License
     MIT
     ## Contributing
