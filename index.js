@@ -142,17 +142,17 @@ function addRole(){
 
 function updateEmployeeRole() {
     connection.query(`SELECT
-        e.id,
+        id,
         e.first_name,
         e.last_name,
         e.manager_id,
         e.role_id,
-        r.id,
+        id,
         r.title,
         r.salary,
         r.department_id
         FROM employee_trackerdb.employee e
-        left join employee_trackerdb.role r on e.role_id = r.id;`, (err, res) => {
+        left join employee_trackerdb.role r on e.role_id = id;`, (err, res) => {
         if (err) throw err;
         console.table(res);
 
@@ -176,7 +176,7 @@ function updateEmployeeRole() {
                         id: res.newId,
                     },
                     {
-                        id: res.idUpdate,
+                        id: res.updateId,
                     }
                 ],
                 (err, res) => {
